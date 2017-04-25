@@ -1,0 +1,16 @@
+{
+  "name": "fermenter-controller",
+  "version": "0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.1",
+    "express": "~4.13.4",
+    "particle-api-js": "^6.3.0",
+    "url": "^0.11.0"
+  }
+}
