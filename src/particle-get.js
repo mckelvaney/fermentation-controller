@@ -117,6 +117,7 @@ module.exports = {
     fnPr.then(
       function(data) {
         console.log('Function called succesfully:', data);
+        return true;
       }, function(err) {
         console.log('An error occurred:', err);
       });
