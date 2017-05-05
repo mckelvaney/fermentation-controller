@@ -58,7 +58,7 @@ $(document).ready(function() {
       $("#temperature-output").val(temperature.value);
       $("#temperature-time-output").val(temperature.timestamp);
     });
-  }, 500);
+  }, 1000);
 
   $("#set-point-btn").click(function() {
     makePostCall(makeEndpoint("set_point"), JSON.stringify({"set_point" : $("#set-point-input").val()}));
