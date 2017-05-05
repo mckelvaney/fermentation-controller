@@ -6,7 +6,6 @@ let router = express.Router();
 
 router.get(["/latest_cooling", "/latest_set_point", "/latest_temperature", "/latest_heating"], function(req, res) {
   var pathname = url.parse(req.url).pathname;
-  console.log("endpoint called! - " + pathname);
   let deviceName = getDeviceName(req);
 
   if (deviceName != null) {
@@ -35,8 +34,6 @@ router.get(["/latest_cooling", "/latest_set_point", "/latest_temperature", "/lat
 });
 
 router.post("/set_point", function(req, res) {
-  console.log("endpoint called! - /set_point");
-
   let deviceName = getDeviceName(req);
   if (deviceName != null) {
     let deviceID = particle_get.getDeviceIDFromName(deviceName);
@@ -45,7 +42,6 @@ router.post("/set_point", function(req, res) {
 
     fnPr.then(
       function(data) {
-        console.log('Function called succesfully:', data);
         respond(res, [{status: 'ok'}]);
       }, function(err) {
         console.log('An error occurred:', err);

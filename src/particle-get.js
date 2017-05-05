@@ -52,7 +52,6 @@ function openEventStream() {
 
     stream.on("event", function(data) {
       lastEventTimestamp = Date.now();
-      console.log("EVENT - " + data.name + " - DEVICE - " + data.coreid + " - TIME - " + data.published_at);
       handleRequest(data);
     });
 
