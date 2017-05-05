@@ -82,6 +82,9 @@ function handleRequest(data) {
     case "geometry.fermenter.cooling":
       storage.addLatestCooling(data.coreid, data.data);
       break;
+    case "geometry.fermenter.running":
+      // TODO: handle running event
+      break;
     default:
       console.log("EVENT UNHANDLED! : " + data.name);
   }
