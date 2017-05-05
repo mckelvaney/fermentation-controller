@@ -3,23 +3,14 @@ var storage = require("./storage");
 
 var Particle = require("particle-api-js");
 var particle = new Particle();
-var accessToken = null;
+var accessToken = process.env.ACCESS_TOKEN;
 var streamOpen = false;
 
 var lastEventTimestamp = null;
 const RETRY_PERIOD_MS = 3000;
 
-// don't start the process of loading devices until the city service is ready
-fs.readFile("private/access_token.txt", "utf8", function(err, token) {
-  if (err) {
-    console.log("Failed to get private/access_token.txt!");
-    process.exit();
-  }
-
-  accessToken = token.replace(/\s/g, "");
-  updateDevices();
-  openEventStream();
-});
+updateDevices();
+openEventStream();
 
 function updateDevices() {
   let deviceList = particle.listDevices({auth: accessToken});
