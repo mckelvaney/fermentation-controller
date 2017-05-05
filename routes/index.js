@@ -41,7 +41,15 @@ router.post("/set_point", function(req, res) {
   if (deviceName != null) {
     let deviceID = particle_get.getDeviceIDFromName(deviceName);
 
-    particle_get.makeDeviceFunctionCall(deviceID, req.body["set_point"]);
+    let fnPr = particle_get.makeDeviceFunctionCall(deviceID, req.body["set_point"]);
+
+    fnPr.then(
+      function(data) {
+        console.log('Function called succesfully:', data);
+        respond(res, [{status: 'ok'}]);
+      }, function(err) {
+        console.log('An error occurred:', err);
+      });
   } else {
     errorState(res);
   }

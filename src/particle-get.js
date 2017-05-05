@@ -112,14 +112,6 @@ module.exports = {
 
   makeDeviceFunctionCall: function(deviceID, data) {
     // fire and forget function call
-    let fnPr = particle.callFunction({deviceId: deviceID, name: "route", argument: 'setpoint,' + data, auth: accessToken});
-
-    fnPr.then(
-      function(data) {
-        console.log('Function called succesfully:', data);
-        return true;
-      }, function(err) {
-        console.log('An error occurred:', err);
-      });
+    return particle.callFunction({deviceId: deviceID, name: "route", argument: 'setpoint,' + data, auth: accessToken});
   }
 };
