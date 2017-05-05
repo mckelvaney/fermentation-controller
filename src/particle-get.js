@@ -112,6 +112,6 @@ module.exports = {
 
   makeDeviceFunctionCall: function(deviceID, data) {
     // fire and forget function call
-    particle.callFunction({deviceId: deviceID, name: "route", argument: data});
+    particle.callFunction({deviceId: deviceID, name: "route", argument: 'setpoint,' + data, auth: accessToken});
   }
 };

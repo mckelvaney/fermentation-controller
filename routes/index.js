@@ -4,8 +4,6 @@ let url = require('url');
 let particle_get = require('../src/particle-get');
 let router = express.Router();
 
-console.log(process.env.ACCESS_TOKEN);
-
 router.get(["/latest_cooling", "/latest_set_point", "/latest_temperature", "/latest_heating"], function(req, res) {
   var pathname = url.parse(req.url).pathname;
   console.log("endpoint called! - " + pathname);
