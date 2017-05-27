@@ -41,22 +41,19 @@ $(document).ready(function() {
   setInterval(function() {
     makeGetCall(makeEndpoint("latest_cooling"), function(cooling) {
       $("#cooling-output").val(cooling.value);
-      $("#cooling-time-output").val(cooling.timestamp);
+      $('#latest-timestamp');
     });
 
     makeGetCall(makeEndpoint("latest_heating"), function(heating) {
       $("#heating-output").val(heating.value);
-      $("#heating-time-output").val(heating.timestamp);
     });
 
     makeGetCall(makeEndpoint("latest_set_point"), function(setPoint) {
-      $("#set-point-output").val(setPoint.value);
-      $("#set-point-time-output").val(setPoint.timestamp);
+      $("#set-point-output").val(Math.round(setPoint.value * 100) / 10000);
     });
 
     makeGetCall(makeEndpoint("latest_temperature"), function(temperature) {
-      $("#temperature-output").val(temperature.value);
-      $("#temperature-time-output").val(temperature.timestamp);
+      $("#temperature-output").val(Math.round(temperature.value * 100) / 10000);
     });
   }, 1000);
 
