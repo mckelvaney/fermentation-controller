@@ -11,3 +11,6 @@ You can also set the port for the app via the `PORT` environment variable, the d
 - Run `npm install`
 
 - Once finished, run `npm start` and that should be you good to go. If running locally navigate to [http://localhost:9102](http://localhost:9102). Otherwise hit your server up on port `9102`.
+
+# Deployment
+This app uses `dokku` in production, a herokuish type infrastructure. It is trivial to use heroku or your own server, just remember, YMMV.
