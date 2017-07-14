@@ -26,11 +26,16 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 app.use(versionOnePrefix, routes);
 app.use("/", viewRoutes);
 
+// catch any application errors
+app.use(function (err, req, res, next) {
+  console.log(err.stack)
+  res.status(500).send('Internal error');
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+  console.log('Error: Not found - %s', req.originalUrl);
+  res.status(404).send('Not found!');
 });
 
 module.exports = app;
