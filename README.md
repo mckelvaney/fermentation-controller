@@ -1,8 +1,13 @@
-# fermenter-controller
-A simple Node.JS based system to control matt's fermenter project, based on a Particle Photon.
+# fermentation-controller
+A simple Node.js app to control @mhazley & @mckelvaney's brewery fermentation chamber, based on a Particle Photon.
 
-# to start
-You will need to create a `private/` directory with a file `access_token.txt` in the main directory, simply putting in your access token to this file and nothing else.
+# Getting started
+You will need to provide the app with your Particle access token via an environment variable using the name `ACCESS_TOKEN`
+You can also set the port for the app via the `PORT` environment variable, the default is `9102`
 
-run `npm install` and then `npm start` and that should be you good to go. If running locally then head to [http://localhost:9102](http://localhost:9102)
-n a browser. Otherwise hit your server up on port 9102.
+# Running the app
+- Install the required node version, which can be found in `.node-version`, using the method of your choice—I recommend [ndenv](https://github.com/riywo/ndenv).
+
+- Run `npm install`
+
+- Once finished, run `npm start` and that should be you good to go. If running locally navigate to [http://localhost:9102](http://localhost:9102). Otherwise hit your server up on port `9102`.
